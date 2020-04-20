@@ -13,8 +13,8 @@ resource "aws_security_group" "from_us" {
     cidr_blocks = data.aws_ip_ranges.us_ec2.cidr_blocks
   }
   tags = {
-    CreateDate = data.aws_ip_ranges.european_ec2.create_date
-    SyncToken  = data.aws_ip_ranges.european_ec2.sync_token
+    CreateDate = data.aws_ip_ranges.us_ec2.create_date
+    SyncToken  = data.aws_ip_ranges.us_ec2.sync_token
   }
 }
 
