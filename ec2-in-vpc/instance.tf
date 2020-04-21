@@ -1,4 +1,4 @@
-resource "aws_instance" "example" {
+resource "aws_instance" "Bastion" {
   ami           = var.AMIS[var.AWS_REGION]
   instance_type = "t2.micro"
 
@@ -10,5 +10,9 @@ resource "aws_instance" "example" {
 
   # the public SSH key
   key_name = aws_key_pair.mykeypair.key_name
+
+  tags = {
+    Name = "Bastion"
+  }
 }
 
