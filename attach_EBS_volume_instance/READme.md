@@ -2,7 +2,7 @@
 
 ### To Login to remote instance with SSH
 
-ssh -i  mykey -l ubuntu 54.246.195.229
+ssh -i  mykey -l ubuntu <instance_public_ip>
 
 ### to switch to root user
 ```
@@ -12,6 +12,9 @@ $ sudo -s
 to see list of disk
 ```
 $ df -h
+```
+```
+fdisk -l
 ```
 
 ### Format the disk to ext4 file system
