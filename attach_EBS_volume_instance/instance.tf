@@ -13,7 +13,7 @@ resource "aws_instance" "azeez-instance" {
 }
 
 resource "aws_ebs_volume" "ebs-volume-1" {
-  availability_zone = "eu-west-1a"
+  availability_zone = "us-west-2a"
   size              = 20
   type              = "gp2"
   tags = {
