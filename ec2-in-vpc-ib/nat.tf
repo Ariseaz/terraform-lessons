@@ -1,12 +1,12 @@
 # nat gtw eip 
-resource "aws_eip" "nat" {
+resource "aws_eip" "nat-1" {
   vpc = true
 }
 
 #######################
 # NAT for zone a
 resource "aws_nat_gateway" "nat-gw-1" {
-  allocation_id = aws_eip.nat.id
+  allocation_id = aws_eip.nat-1.id
   subnet_id     = aws_subnet.projectib-public-1.id
   depends_on    = [aws_internet_gateway.projectib-gw]
 }
@@ -32,9 +32,14 @@ resource "aws_route_table_association" "projectib-private-1" {
 
 ##############################
 
+# nat gtw eip 
+resource "aws_eip" "nat-2" {
+  vpc = true
+}
+
 # NAT for zone b, private 2
 resource "aws_nat_gateway" "nat-gw-2" {
-  allocation_id = aws_eip.nat.id
+  allocation_id = aws_eip.nat-2.id
   subnet_id     = aws_subnet.projectib-public-2.id
   depends_on    = [aws_internet_gateway.projectib-gw]
 }
