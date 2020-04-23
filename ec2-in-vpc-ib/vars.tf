@@ -25,7 +25,3 @@ variable "PATH_TO_PUBLIC_KEY" {
   default = "mykey.pub"
 }
 
-variable "INSTANCE_DEVICE_NAME" {
-  default = "/dev/xvdh"
-}
-

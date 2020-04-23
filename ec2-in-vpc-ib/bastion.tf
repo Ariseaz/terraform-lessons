@@ -3,7 +3,7 @@ resource "aws_instance" "Bastion" {
   instance_type = "t2.micro"
 
   # the VPC subnet
-  subnet_id = aws_subnet.main-public-1.id
+  subnet_id = aws_subnet.projectib-public-1.id
 
   # the security group
   vpc_security_group_ids = [aws_security_group.allow-ssh.id]
@@ -21,7 +21,7 @@ resource "aws_instance" "IB" {
   instance_type = "t2.micro"
 
   # the VPC subnet
-  subnet_id = aws_subnet.main-public-2.id
+  subnet_id = aws_subnet.projectib-public-2.id
 
   # the security group
   vpc_security_group_ids = [aws_security_group.allow-ssh.id]
