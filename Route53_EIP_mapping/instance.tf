@@ -10,6 +10,10 @@ resource "aws_instance" "server1" {
 
   # the public SSH key
   key_name = aws_key_pair.mykeypair.key_name
+
+  tags = {
+    Name = "Server1"
+  }
 }
 
 # this is to give EIP to instance
