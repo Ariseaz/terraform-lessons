@@ -10,7 +10,7 @@ resource "aws_autoscaling_group" "example-autoscaling" {
   name                      = "example-autoscaling"
   vpc_zone_identifier       = [aws_subnet.project-public-1.id, aws_subnet.project-public-2.id]
   launch_configuration      = aws_launch_configuration.example-launchconfig.name
-  min_size                  = 3
+  min_size                  = 4
   max_size                  = 10
   health_check_grace_period = 300
   health_check_type         = "EC2"
