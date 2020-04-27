@@ -1,11 +1,19 @@
-variable "AWS_ACCESS_KEY" {
-}
-
-variable "AWS_SECRET_KEY" {
+variable "ENV" {
 }
 
 variable "AWS_REGION" {
   default = "us-west-2"
+}
+
+variable "VPC_ID" {
+}
+
+variable "PUBLIC_SUBNETS" {
+  type = list
+}
+
+variable "INSTANCE_TYPE" {
+  default = "t2.micro"
 }
 
 variable "AMIS" {
@@ -17,14 +25,6 @@ variable "AMIS" {
   }
 }
 
-variable "PATH_TO_PRIVATE_KEY" {
-  default = "mykey"
-}
-
-variable "PATH_TO_PUBLIC_KEY" {
-  default = "mykey.pub"
-}
-
-variable "RDS_PASSWORD" {
+variable "KEY_NAME" {
 }
 
