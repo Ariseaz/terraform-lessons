@@ -12,7 +12,7 @@ resource "aws_instance" "jenkins-instance" {
   key_name = var.KEY_NAME
 
   # user data
-  user_data = data.template_cloudinit_config.cloudinit-jenkins.rendered
+  user_data = data.template_cloudinit_config.cloudinit-script.rendered
 
   tags = {
     Name         = "jenkins-instance-${var.ENV}"

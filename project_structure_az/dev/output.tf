@@ -1,4 +1,4 @@
-output "bastion_pub_ip" {
+output "bastion_ip" {
   value = "${module.bastion.bastion-ip}"
 }
 

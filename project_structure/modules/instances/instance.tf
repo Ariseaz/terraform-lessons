@@ -1,6 +1,10 @@
 variable "ENV" {
 }
 
+variable "AWS_REGION" {
+  default = "us-west-2"
+}
+
 variable "INSTANCE_TYPE" {
   default = "t2.micro"
 }
@@ -16,24 +20,17 @@ variable "PATH_TO_PUBLIC_KEY" {
   default = "mykey.pub"
 }
 
-data "aws_ami" "ubuntu" {
-  most_recent = true
-
-  filter {
-    name   = "name"
-    values = ["ubuntu/images/hvm-ssd/ubuntu-trusty-14.04-amd64-server-*"]
+variable "AMIS" {
+  type = map(string)
+  default = {
+    us-east-2 = "ami-0fc20dd1da406780b"
+    us-west-1 = "ami-03ba3948f6c37a4b0"
+    us-west-2 = "ami-0d1cd67c26f5fca19"
   }
-
-  filter {
-    name   = "virtualization-type"
-    values = ["hvm"]
-  }
-
-  owners = ["099720109477"] # Canonical
 }
 
 resource "aws_instance" "instance" {
-  ami           = data.aws_ami.ubuntu.id
+  ami           = var.AMIS[var.AWS_REGION]
   instance_type = var.INSTANCE_TYPE
 
   # the VPC subnet
