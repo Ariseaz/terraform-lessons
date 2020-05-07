@@ -19,6 +19,7 @@ sudo usermod -aG docker ubuntu
 sudo systemctl restart docker
 
 # run jenkins
+mkdir /var/jenkins_home
 sudo chown -R 1000:1000 /var/jenkins_home
 sudo docker run -p 8080:8080 -p 50000:50000 -v /var/jenkins_home:/var/jenkins_home -d --name jenkins adenijiazeez/jenkins-docker
 
